@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Amazon</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1>Amazon</h1>
+
+<p>Sentiment Analysis for Amazon.</p>
+
+<pre><code class="r">library(&quot;twitteR&quot;)
+library(&quot;wordcloud&quot;)
+library(&quot;tm&quot;)
+library(&quot;ggplot2&quot;)
+library(&quot;reshape2&quot;)
+</code></pre>
+
+<p>This code shows the twitter sentiment analysis using tweets of Amazon for 5 consecutive days. </p>
+
+<pre><code class="r">my.key &lt;-&quot;KbBDqQifBUi1HN5SKDABGt2VA&quot;
+my.secret &lt;-&quot;tnJUP5JTZQXQ9TFZP91JmKamad1sEBwR7NfuYcyAxnNbm8oW97&quot;
+
+cred &lt;- OAuthFactory$new(consumerKey=my.key,
+                         consumerSecret=my.secret,
+                         requestURL=&#39;https://api.twitter.com/oauth/request_token&#39;,
+                         accessURL=&#39;https://api.twitter.com/oauth/access_token&#39;,
+                         authURL= &#39;https://api.twitter.com/oauth/authorize&#39;)
+
+## save the credentials to your local drive
+## on future uses of the script you&#39;ll only need to load the .Rdata
+## file and won&#39;t have to re-authorize your account.
+
+save(cred, file=&quot;twitter_authentication.Rdata&quot;)
+
+
+load(&quot;twitter_authentication.Rdata&quot;)
+cred$handshake(cainfo = system.file(&quot;CurlSSL&quot;, &quot;cacert.pem&quot;, package = &quot;RCurl&quot;))
+
+
+## check that authorization was successful
+
+registerTwitterOAuth(cred)
+
+
+## tweets &lt;- searchTwitter(&quot;@Boeing&quot;,n=500)
+
+tweets &lt;- searchTwitter(&quot;@Amazon&quot;,n=200, lang=&quot;en&quot;, since=&#39;2014-12-3&#39;, until=&#39;2014-12-4&#39;)
+
+length(tweets)
+
+## Now, we will extract the fields that we want
+
+tweets.id &lt;- sapply(tweets, function(x) x$getId())
+tweets.text &lt;- sapply(tweets, function(x) x$getText())
+tweets.screenname &lt;- sapply(tweets, function(x) x$getScreenName())
+tweets.isretweet &lt;- sapply(tweets, function(x) x$getIsRetweet())
+tweets.retweeted &lt;- sapply(tweets, function(x) x$getRetweeted())
+tweets.created &lt;- sapply(tweets, function(x) x$getCreated())
+
+head(tweets.text)
+
+## Write data to file
+df &lt;- data.frame(tweets.id, tweets.text, tweets.screenname, tweets.isretweet, tweets.retweeted, tweets.created)
+names(df) &lt;-c(&quot;id&quot;, &quot;text&quot;, &quot;screenname&quot;, &quot;isretweet&quot;, &quot;retweeted&quot;, &quot;created&quot;)
+write.table(df, file = &quot;Amazon1.txt&quot;, append = TRUE)
+## these are the files from ReggieNet
+##load opinion lexicon
+##from http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html#lexicon
+## the load path is relative to the working directory that is set above
+pos &lt;- scan(&quot;positive-words.txt&quot;,what=&quot;character&quot;,comment.char=&quot;;&quot;)
+neg &lt;- scan(&quot;negative-words.txt&quot;,what=&quot;character&quot;,comment.char=&quot;;&quot;)
+
+## create corpus
+## these functions from the tm package
+tweets.corpus &lt;- Corpus(VectorSource(tweets.text))
+
+## clean up
+tweets.corpus &lt;- tm_map(tweets.corpus, tolower) 
+tweets.corpus &lt;- tm_map(tweets.corpus, removePunctuation)
+tweets.corpus &lt;- tm_map(tweets.corpus, function(x) removeWords(x,stopwords()))
+
+## split the tweets in the corpus up into individual words
+## lapply iterates over each element in the corpus
+## and applies the strsplit function
+## the splitting argument is the 3rd in the lapply function
+## and is splitting on white space.
+corpus.split &lt;- lapply(tweets.corpus,strsplit,&quot;\\s+&quot;)
+
+## find matches for the individual words in the two lexicons
+## lapply again, x takes on an element in the corpus
+## at each iteration
+matches &lt;- lapply(corpus.split,function(x) {
+  match.pos &lt;- match(x[[1]],pos)
+  match.neg &lt;- match(x[[1]],neg) 
+
+  ## return the length of each match vector, non-na 
+  list(length(which(!is.na(match.pos))),length(which(!is.na(match.neg))))
+})
+
+
+## turn the matches into a matrix
+## one column for positive, one for negative
+match.matrix &lt;- matrix(unlist(matches),nrow=length(matches),ncol=2,byrow=T)
+
+## calculate a simple sentiment score by substracting
+## positive count from negative count
+simple.sentiment1 &lt;- match.matrix[,1] - match.matrix[,2]
+
+## histogram of sentiment
+hist(simple.sentiment1)
+
+sentiment1&lt;-sum(simple.sentiment1)
+
+  ###############################################################################
+## 2nd Day Tweets
+
+
+## tweets &lt;- searchTwitter(&quot;@Boeing&quot;,n=500)
+
+tweets &lt;- searchTwitter(&quot;@Amazon&quot;,n=200, lang=&quot;en&quot;, since=&#39;2014-12-4&#39;, until=&#39;2014-12-5&#39;)
+
+length(tweets)
+
+tweets.id &lt;- sapply(tweets, function(x) x$getId())
+tweets.text &lt;- sapply(tweets, function(x) x$getText())
+tweets.screenname &lt;- sapply(tweets, function(x) x$getScreenName())
+tweets.isretweet &lt;- sapply(tweets, function(x) x$getIsRetweet())
+tweets.retweeted &lt;- sapply(tweets, function(x) x$getRetweeted())
+tweets.created &lt;- sapply(tweets, function(x) x$getCreated())
+
+head(tweets.text)
+
+## Write data to file
+df &lt;- data.frame(tweets.id, tweets.text, tweets.screenname, tweets.isretweet, tweets.retweeted, tweets.created)
+names(df) &lt;-c(&quot;id&quot;, &quot;text&quot;, &quot;screenname&quot;, &quot;isretweet&quot;, &quot;retweeted&quot;, &quot;created&quot;)
+
+write.table(df, file = &quot;Amazon2.txt&quot;, append = TRUE)
+
+pos &lt;- scan(&quot;positive-words.txt&quot;,what=&quot;character&quot;,comment.char=&quot;;&quot;)
+neg &lt;- scan(&quot;negative-words.txt&quot;,what=&quot;character&quot;,comment.char=&quot;;&quot;)
+
+## create corpus
+## these functions from the tm package
+tweets.corpus &lt;- Corpus(VectorSource(tweets.text))
+
+## clean up
+tweets.corpus &lt;- tm_map(tweets.corpus, tolower) 
+tweets.corpus &lt;- tm_map(tweets.corpus, removePunctuation)
+tweets.corpus &lt;- tm_map(tweets.corpus, function(x) removeWords(x,stopwords()))
+
+## split the tweets in the corpus up into individual words
+## lapply iterates over each element in the corpus
+## and applies the strsplit function
+## the splitting argument is the 3rd in the lapply function
+## and is splitting on white space.
+corpus.split &lt;- lapply(tweets.corpus,strsplit,&quot;\\s+&quot;)
+
+## find matches for the individual words in the two lexicons
+## lapply again, x takes on an element in the corpus
+## at each iteration
+matches &lt;- lapply(corpus.split,function(x) {
+  match.pos &lt;- match(x[[1]],pos)
+  match.neg &lt;- match(x[[1]],neg) 
+
+  ## return the length of each match vector, non-na 
+  list(length(which(!is.na(match.pos))),length(which(!is.na(match.neg))))
+})
+
+
+## turn the matches into a matrix
+## one column for positive, one for negative
+match.matrix &lt;- matrix(unlist(matches),nrow=length(matches),ncol=2,byrow=T)
+
+## calculate a simple sentiment score by substracting
+## positive count from negative count
+simple.sentiment2 &lt;- match.matrix[,1] - match.matrix[,2]
+
+## histogram of sentiment
+hist(simple.sentiment2)
+
+
+sentiment2&lt;-sum(simple.sentiment2)
+
+  ###############################################################################
+## 3rd Day Tweets
+
+tweets &lt;- searchTwitter(&quot;@Amazon&quot;,n=200, lang=&quot;en&quot;, since=&#39;2014-12-5&#39;, until=&#39;2014-12-6&#39;)
+
+length(tweets)
+
+
+## Now, we will extract the fields that we want
+
+
+tweets.id &lt;- sapply(tweets, function(x) x$getId())
+tweets.text &lt;- sapply(tweets, function(x) x$getText())
+tweets.screenname &lt;- sapply(tweets, function(x) x$getScreenName())
+tweets.isretweet &lt;- sapply(tweets, function(x) x$getIsRetweet())
+tweets.retweeted &lt;- sapply(tweets, function(x) x$getRetweeted())
+tweets.created &lt;- sapply(tweets, function(x) x$getCreated())
+
+head(tweets.text)
+
+## Write data to file
+df &lt;- data.frame(tweets.id, tweets.text, tweets.screenname, tweets.isretweet, tweets.retweeted, tweets.created)
+names(df) &lt;-c(&quot;id&quot;, &quot;text&quot;, &quot;screenname&quot;, &quot;isretweet&quot;, &quot;retweeted&quot;, &quot;created&quot;)
+
+write.table(df, file = &quot;Amazon3.txt&quot;, append = TRUE)
+
+## these are the files from ReggieNet
+##load opinion lexicon
+##from http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html#lexicon
+## the load path is relative to the working directory that is set above
+pos &lt;- scan(&quot;positive-words.txt&quot;,what=&quot;character&quot;,comment.char=&quot;;&quot;)
+neg &lt;- scan(&quot;negative-words.txt&quot;,what=&quot;character&quot;,comment.char=&quot;;&quot;)
+
+## create corpus
+## these functions from the tm package
+tweets.corpus &lt;- Corpus(VectorSource(tweets.text))
+
+## clean up
+tweets.corpus &lt;- tm_map(tweets.corpus, tolower) 
+tweets.corpus &lt;- tm_map(tweets.corpus, removePunctuation)
+tweets.corpus &lt;- tm_map(tweets.corpus, function(x) removeWords(x,stopwords()))
+
+## split the tweets in the corpus up into individual words
+## lapply iterates over each element in the corpus
+## and applies the strsplit function
+## the splitting argument is the 3rd in the lapply function
+## and is splitting on white space.
+corpus.split &lt;- lapply(tweets.corpus,strsplit,&quot;\\s+&quot;)
+
+## find matches for the individual words in the two lexicons
+## lapply again, x takes on an element in the corpus
+## at each iteration
+matches &lt;- lapply(corpus.split,function(x) {
+  match.pos &lt;- match(x[[1]],pos)
+  match.neg &lt;- match(x[[1]],neg) 
+
+  ## return the length of each match vector, non-na 
+  list(length(which(!is.na(match.pos))),length(which(!is.na(match.neg))))
+})
+
+## turn the matches into a matrix
+## one column for positive, one for negative
+match.matrix &lt;- matrix(unlist(matches),nrow=length(matches),ncol=2,byrow=T)
+
+## calculate a simple sentiment score by substracting
+## positive count from negative count
+simple.sentiment3 &lt;- match.matrix[,1] - match.matrix[,2]
+
+## histogram of sentiment
+hist(simple.sentiment3)
+
+sentiment3&lt;-sum(simple.sentiment3)
+
+  ###############################################################################
+## 4th Day Tweets
+
+tweets &lt;- searchTwitter(&quot;@Amazon&quot;,n=200, lang=&quot;en&quot;, since=&#39;2014-12-8&#39;, until=&#39;2014-12-9&#39;)
+
+
+length(tweets)
+
+## Now, we will extract the fields that we want
+tweets.id &lt;- sapply(tweets, function(x) x$getId())
+tweets.text &lt;- sapply(tweets, function(x) x$getText())
+tweets.screenname &lt;- sapply(tweets, function(x) x$getScreenName())
+tweets.isretweet &lt;- sapply(tweets, function(x) x$getIsRetweet())
+tweets.retweeted &lt;- sapply(tweets, function(x) x$getRetweeted())
+tweets.created &lt;- sapply(tweets, function(x) x$getCreated())
+
+head(tweets.text)
+
+## Write data to file
+df &lt;- data.frame(tweets.id, tweets.text, tweets.screenname, tweets.isretweet, tweets.retweeted, tweets.created)
+names(df) &lt;-c(&quot;id&quot;, &quot;text&quot;, &quot;screenname&quot;, &quot;isretweet&quot;, &quot;retweeted&quot;, &quot;created&quot;)
+
+write.table(df, file = &quot;Amazon4.txt&quot;, append = TRUE)
+
+## these are the files from ReggieNet
+##load opinion lexicon
+##from http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html#lexicon
+## the load path is relative to the working directory that is set above
+pos &lt;- scan(&quot;positive-words.txt&quot;,what=&quot;character&quot;,comment.char=&quot;;&quot;)
+neg &lt;- scan(&quot;negative-words.txt&quot;,what=&quot;character&quot;,comment.char=&quot;;&quot;)
+
+## create corpus
+## these functions from the tm package
+tweets.corpus &lt;- Corpus(VectorSource(tweets.text))
+
+
+## clean up
+tweets.corpus &lt;- tm_map(tweets.corpus, tolower) 
+tweets.corpus &lt;- tm_map(tweets.corpus, removePunctuation)
+tweets.corpus &lt;- tm_map(tweets.corpus, function(x) removeWords(x,stopwords()))
+
+## split the tweets in the corpus up into individual words
+## lapply iterates over each element in the corpus
+## and applies the strsplit function
+## the splitting argument is the 3rd in the lapply function
+## and is splitting on white space.
+corpus.split &lt;- lapply(tweets.corpus,strsplit,&quot;\\s+&quot;)
+
+## find matches for the individual words in the two lexicons
+## lapply again, x takes on an element in the corpus
+## at each iteration
+matches &lt;- lapply(corpus.split,function(x) {
+  match.pos &lt;- match(x[[1]],pos)
+  match.neg &lt;- match(x[[1]],neg) 
+
+  ## return the length of each match vector, non-na 
+  list(length(which(!is.na(match.pos))),length(which(!is.na(match.neg))))
+})
+
+
+## turn the matches into a matrix
+## one column for positive, one for negative
+match.matrix &lt;- matrix(unlist(matches),nrow=length(matches),ncol=2,byrow=T)
+
+## calculate a simple sentiment score by substracting
+## positive count from negative count
+simple.sentiment4 &lt;- match.matrix[,1] - match.matrix[,2]
+
+## histogram of sentiment
+hist(simple.sentiment4)
+sentiment4&lt;-sum(simple.sentiment4)
+
+  ###############################################################################
+## 5th Day Tweets
+
+tweets &lt;- searchTwitter(&quot;@Amazon&quot;,n=200, lang=&quot;en&quot;, since=&#39;2014-12-9&#39;, until=&#39;2014-12-10&#39;)
+
+
+length(tweets)
+
+## Now, we will extract the fields that we want
+
+tweets.id &lt;- sapply(tweets, function(x) x$getId())
+tweets.text &lt;- sapply(tweets, function(x) x$getText())
+tweets.screenname &lt;- sapply(tweets, function(x) x$getScreenName())
+tweets.isretweet &lt;- sapply(tweets, function(x) x$getIsRetweet())
+tweets.retweeted &lt;- sapply(tweets, function(x) x$getRetweeted())
+tweets.created &lt;- sapply(tweets, function(x) x$getCreated())
+
+head(tweets.text)
+
+## Write data to file
+df &lt;- data.frame(tweets.id, tweets.text, tweets.screenname, tweets.isretweet, tweets.retweeted, tweets.created)
+names(df) &lt;-c(&quot;id&quot;, &quot;text&quot;, &quot;screenname&quot;, &quot;isretweet&quot;, &quot;retweeted&quot;, &quot;created&quot;)
+
+write.table(df, file = &quot;Amazon5.txt&quot;, append = TRUE)
+
+## these are the files from ReggieNet
+##load opinion lexicon
+##from http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html#lexicon
+## the load path is relative to the working directory that is set above
+pos &lt;- scan(&quot;positive-words.txt&quot;,what=&quot;character&quot;,comment.char=&quot;;&quot;)
+neg &lt;- scan(&quot;negative-words.txt&quot;,what=&quot;character&quot;,comment.char=&quot;;&quot;)
+
+## create corpus
+## these functions from the tm package
+tweets.corpus &lt;- Corpus(VectorSource(tweets.text))
+
+## clean up
+tweets.corpus &lt;- tm_map(tweets.corpus, tolower) 
+tweets.corpus &lt;- tm_map(tweets.corpus, removePunctuation)
+tweets.corpus &lt;- tm_map(tweets.corpus, function(x) removeWords(x,stopwords()))
+
+## split the tweets in the corpus up into individual words
+## lapply iterates over each element in the corpus
+## and applies the strsplit function
+## the splitting argument is the 3rd in the lapply function
+## and is splitting on white space.
+corpus.split &lt;- lapply(tweets.corpus,strsplit,&quot;\\s+&quot;)
+
+## find matches for the individual words in the two lexicons
+## lapply again, x takes on an element in the corpus
+## at each iteration
+matches &lt;- lapply(corpus.split,function(x) {
+  match.pos &lt;- match(x[[1]],pos)
+  match.neg &lt;- match(x[[1]],neg) 
+
+  ## return the length of each match vector, non-na 
+  list(length(which(!is.na(match.pos))),length(which(!is.na(match.neg))))
+})
+
+
+## turn the matches into a matrix
+## one column for positive, one for negative
+match.matrix &lt;- matrix(unlist(matches),nrow=length(matches),ncol=2,byrow=T)
+
+## calculate a simple sentiment score by substracting
+## positive count from negative count
+simple.sentiment5 &lt;- match.matrix[,1] - match.matrix[,2]
+
+## histogram of sentiment
+hist(simple.sentiment5)
+
+sentiment5 &lt;- sum(simple.sentiment5)
+</code></pre>
+
+<p>Following is the graph which shows the comparison between sentiment analysis and actual Stock Market Price. </p>
+
+<pre><code class="r">#Create CSV file and update the data from stocks for Amazon. 
+
+AmazonData &lt;- read.csv(file = &quot;Amazon.csv&quot;)
+
+AmazonData$Start &lt;- NULL
+AmazonData$End &lt;- NULL
+
+AmazonData
+</code></pre>
+
+<pre><code>##         Day Tweets Stock.Price Sentiment.Score Sentiment.Prediction Actual
+## 1 12/1/2014    200       316.5              39                    1     -1
+## 2 12/2/2014    200       316.9             122                    1      1
+## 3 12/3/2014    200       312.6              56                   -1     -1
+## 4 12/4/2014    200       306.6             144                    1     -1
+## 5 12/5/2014    200       312.5              74                   -1      1
+</code></pre>
+
+<pre><code class="r">AmazonData$Stock.Price &lt;- NULL
+AmazonData$Sentiment.Score &lt;- NULL
+
+molten.AmazonData &lt;- melt(AmazonData, id.vars = c(&quot;Day&quot;, &quot;Tweets&quot;), 
+                           measure.vars = c(&quot;Sentiment.Prediction&quot;, &quot;Actual&quot;))
+</code></pre>
+
+<pre><code class="r">ggplot(molten.AmazonData, aes(x=Day, y=value, fill = variable))+geom_bar(stat=&quot;identity&quot;, position=position_dodge())+xlab(&quot;Day&quot;)+ylab(&quot;Value&quot;)+ ggtitle(&quot;Amazon Stock Sentiment Analysis&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-4"/> </p>
+
+<p>Summary</p>
+
+<p>Here we calculated the sentiment analysis for Amazon using twitter and compared the analysis with ctual Stock Price of the Market. After performing sentiment analysis using tweets from Twitter we received varied analysis for all 5 days. We received positive for the 1st day, positive for 2nd day, negative for the 3rd day, positive for the 4th day and negative for the 5th day. However, the stock price of Amazon said a different story. It increased on day2 and day 5. </p>
+
+<p>Based on the above theory and graph, we can conclude that there is no clear corelation between twitter sentiment analysis and the stock market price. The changes in the stock market are due to different reasons like supply and demand of the products. It is not based on twitter analysis. </p>
+
+</body>
+
+</html>
+
